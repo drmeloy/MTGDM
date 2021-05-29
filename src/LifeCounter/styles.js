@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Animated } from 'react-native';
 
 export const styles = props => StyleSheet.create({
   container: {
@@ -8,8 +8,14 @@ export const styles = props => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  hp: {
+    flexDirection: 'row',
+  },
   font: {
     fontSize: props.fontSize,
     margin: 20,
   },
+  diff: {
+    opacity: props.diffOpacity,
+  }
 });
