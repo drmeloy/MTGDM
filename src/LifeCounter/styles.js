@@ -8,14 +8,20 @@ export const styles = props => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  hpDisplay: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   hp: {
     flexDirection: 'row',
   },
   font: {
-    fontSize: props.fontSize,
+    fontSize: 32,
     margin: 20,
   },
   diff: {
     opacity: props.diffOpacity,
+    alignItems: 'center',
   }
 });
