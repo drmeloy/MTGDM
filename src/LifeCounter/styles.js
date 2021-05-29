@@ -7,5 +7,9 @@ export const styles = props => StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
+  font: {
+    fontSize: props.fontSize,
+    margin: 20,
+  },
 });
