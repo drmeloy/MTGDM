@@ -3,6 +3,8 @@ import { Text, View, Pressable } from 'react-native';
 import DiffDisplay from './DiffDisplay';
 import { styler } from '../utils';
 import { styles } from './styles';
+import PlusIcon from '../../public/assets/plus_icon.svg';
+import MinusIcon from '../../public/assets/minus_icon.svg';
 
 export default function HpDisplay(){
   const [hp, setHp] = useState(40);
@@ -23,24 +25,22 @@ export default function HpDisplay(){
     <View styles={styler(styles, stylesParams, 'hpDisplay')}>
       <DiffDisplay diff={diff} setDiff={setDiff} />
       <View style={styler(styles, stylesParams, 'hp')}>
-          <Pressable
-            onPress={lowerHp}
-          >
-            <Text style={styler(styles, stylesParams, 'font')}>
-              -
-            </Text>
-          </Pressable>
+        <Pressable onPress={lowerHp}>
+          {/* <MinusIcon /> */}
           <Text style={styler(styles, stylesParams, 'font')}>
-            {hp}
+            -
           </Text>
-          <Pressable
-            onPress={raiseHp}
-          >
-            <Text style={styler(styles, stylesParams, 'font')}>
-              +
-            </Text>
-          </Pressable>
-        </View>
+        </Pressable>
+        <Text style={styler(styles, stylesParams, 'font')}>
+          {hp}
+        </Text>
+        <Pressable onPress={raiseHp}>
+          {/* <PlusIcon /> */}
+          <Text style={styler(styles, stylesParams, 'font')}>
+            +
+          </Text>
+        </Pressable>
       </View>
+    </View>
   )
 }
