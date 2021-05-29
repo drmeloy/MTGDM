@@ -22,7 +22,7 @@ export default function DiffDisplay({ diff, setDiff }){
     })
   }, [diff]);
 
-  const resetDiffDebounced = useCallback(_.debounce(() => setDiff(0), 3000), []);
+  const resetDiffDebounced = useCallback(_.debounce(() => setDiff(0), 2500), []);
 
   useEffect(() => {
     resetDiffDebounced();

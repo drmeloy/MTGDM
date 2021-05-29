@@ -8,6 +8,11 @@ export const styles = props => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  box1: {
+    transform: [{
+      rotate: '180deg'
+    }]
+  },
   hpDisplay: {
     flexDirection: 'column',
     alignItems: 'center',

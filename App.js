@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import LifeCounter from './src/LifeCounter/LifeCounter';
+import LifeCounter from './src/LifeCounter';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <LifeCounter />
+      <LifeCounter boxNum={1} />
+      <LifeCounter boxNum={2} />
       <StatusBar style="auto" />
     </View>
   );
@@ -15,7 +16,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
