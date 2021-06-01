@@ -26,7 +26,6 @@ export const styles = props => StyleSheet.create({
     margin: 20,
   },
   diff: {
-    // opacity: props.diffOpacity,
     alignItems: 'center',
-  }
+  },
 });

@@ -1,22 +1,34 @@
 import React from 'react';
-import { View, Text, Modal, StyleSheet } from 'react-native';
+import { View, Text, Modal, StyleSheet, Pressable } from 'react-native';
 
-export default function ChangerModal({ isVisible }){
-
-  console.log(isVisible);
+export default function ChangerModal({ isVisible, setIsVisible }){
   return (
+    <View styles={styles.centeredView}>
       <Modal
-        style={styles.modalView}
         visible={isVisible}
       >
-        <Text>
-          Change colors bitch!
-        </Text>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text>
+              Change colors bitch!
+            </Text>
+            <Pressable onPress={() => setIsVisible(false)}>
+              <Text>CLOSE MODAL</Text>
+            </Pressable>
+          </View>
+        </View>
       </Modal>
+    </View>
   )
 };
 
 const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
   modalView: {
     margin: 20,
     backgroundColor: "white",
