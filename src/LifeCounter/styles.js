@@ -10,4 +10,9 @@ export const styles = props => StyleSheet.create({
     borderTopColor: 'black',
     borderTopWidth: 1,
   },
+  box1: {
+    transform: [{
+      rotate: '180deg'
+    }]
+  },
 });

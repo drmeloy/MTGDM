@@ -13,7 +13,7 @@ export default function LifeCounter({ boxNum }){
   return (
     <View style={[styler(styles, { bgColor }, 'container'), styler(styles, {}, `box${boxNum}`)]}>
       <ChangerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-      <ChangerModal isVisible={menuOpen} setIsVisible={setMenuOpen} />
+      <ChangerModal isVisible={menuOpen} setBgColor={setBgColor} />
       <HpDisplay />
     </View>
   )

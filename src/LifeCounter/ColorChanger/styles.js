@@ -19,6 +19,7 @@ export const styles = props => StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     position: 'absolute',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    zIndex: 1,
   }
 });
