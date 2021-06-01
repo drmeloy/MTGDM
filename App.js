@@ -8,7 +8,6 @@ export default function App() {
     <View style={styles.container}>
       <LifeCounter boxNum={1} />
       <LifeCounter boxNum={2} />
-      <StatusBar style="auto" />
     </View>
   );
 }

@@ -1,14 +1,19 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Text, Animated } from 'react-native';
 import { styles } from './styles';
-import { styler } from '../utils';
+import { styler } from '../../utils';
 import _ from 'lodash';
 
 export default function DiffDisplay({ diff, setDiff }){
+  const [isResetting, setIsResetting] = useState(false);
   const diffOpacity = useRef(new Animated.Value(0)).current;
   const initialLoadDone = useRef(false);
 
   useEffect(() => {
+    if (diff === 0 && isResetting) {
+      setIsResetting(false);
+      return;
+    }
     if (initialLoadDone.current) {
       Animated.timing(diffOpacity, {
         toValue: 1,
@@ -25,7 +30,10 @@ export default function DiffDisplay({ diff, setDiff }){
     else initialLoadDone.current = true;
   }, [diff]);
 
-  const resetDiffDebounced = useCallback(_.debounce(() => setDiff(0), 2000), []);
+  const resetDiffDebounced = useCallback(_.debounce(() => {
+    setIsResetting(true);
+    setDiff(0);
+  }, 2000), []);
 
   useEffect(() => {
     resetDiffDebounced();

@@ -7,25 +7,7 @@ export const styles = props => StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  box1: {
-    transform: [{
-      rotate: '180deg'
-    }]
-  },
-  hpDisplay: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  hp: {
-    flexDirection: 'row',
-  },
-  font: {
-    fontSize: 32,
-    margin: 20,
-  },
-  diff: {
-    alignItems: 'center',
+    borderTopColor: 'black',
+    borderTopWidth: 1,
   },
 });
