@@ -7,7 +7,7 @@ export const styles = props => StyleSheet.create({
     right: 20,
   },
   changerModal: {
-    backgroundColor: "white",
+    backgroundColor: 'rgba(52, 52, 52, 0.5)',
     borderRadius: 20,
     padding: 35,
     alignItems: "center",
@@ -21,5 +21,11 @@ export const styles = props => StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     zIndex: 1,
+    flexDirection: 'row',
+  },
+  colorSelector: {
+    width: 25,
+    height: 25,
+    margin: 10
   }
 });
