@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
-// const icon = require('../../public/assets/black_mana.png');
+import ChangerModal from './ChangerModal';
 
 export default function ColorChanger(){
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <View>
+      <ChangerModal isVisible={menuOpen} />
       <Pressable
         onPress={() => setMenuOpen(!menuOpen)}
       >
