@@ -12,7 +12,7 @@ export default function ChangerButton({ menuOpen, setMenuOpen}){
         >
           <Image
             style={{width: 25, height: 25}}
-            source={require('../../../public/assets/green_mana.png')} />
+            source={require('../../../public/assets/mana/green_mana.png')} />
         </Pressable>
       </View>
     </View>

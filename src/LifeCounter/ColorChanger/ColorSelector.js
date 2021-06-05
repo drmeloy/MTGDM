@@ -9,7 +9,7 @@ export default function ColorSelector({ color, setBgColor }){
         onPress={() => setBgColor(color)}>
         <Image
             style={styler(styles, {}, 'colorSelector')}
-            source={require(`../../../public/assets/${color}_mana.png`)} />
+            source={require(`../../../public/assets/mana/${color}_mana.png`)} />
     </Pressable>
   )
 };
