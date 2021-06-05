@@ -40,8 +40,8 @@ export default function DiffDisplay({ diff, setDiff }){
   }, [diff]);
 
   return (
-    <Animated.View style={[styler(styles, {}, 'diff'), { opacity: diffOpacity }]}>
-        <Text>{diff}</Text>
+    <Animated.View style={[styler(styles, {}, 'diffDisplay'), { opacity: diffOpacity }]}>
+        <Text style={styler(styles, {}, 'diffText')}>{diff}</Text>
     </Animated.View>
   );
 };

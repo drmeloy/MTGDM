@@ -10,10 +10,28 @@ export const styles = props => StyleSheet.create({
     flexDirection: 'row',
   },
   font: {
-    fontSize: 32,
+    fontSize: 40,
+    fontWeight: 'bold',
     margin: 20,
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
+    textShadowRadius: 3
   },
-  diff: {
+  diffDisplay: {
     alignItems: 'center',
   },
+  diffText: {
+    fontSize: 16,
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowOffset: {
+      width: 2,
+      height: 2
+    },
+    textShadowRadius: 3
+  }
 });
