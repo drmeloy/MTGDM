@@ -16,7 +16,7 @@ export const styles = props => StyleSheet.create({
     color: 'white',
     textShadowColor: 'black',
     textShadowOffset: {
-      width: 2,
+      width: -2,
       height: 2
     },
     textShadowRadius: 3
