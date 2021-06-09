@@ -8,7 +8,7 @@ import { styler } from '../utils';
 import { styles } from './styles';
 
 export default function LifeCounter({ boxNum }){
-  const [bgColors, setBgColors] = useState(['blue']);
+  const [bgColors, setBgColors] = useState(['white']);
   const [menuOpen, setMenuOpen] = useState(false);
   
   return (

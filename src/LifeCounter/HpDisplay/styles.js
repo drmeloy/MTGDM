@@ -12,26 +12,28 @@ export const styles = props => StyleSheet.create({
   font: {
     fontSize: 40,
     fontWeight: 'bold',
-    margin: 20,
+    padding: 20,
     color: 'white',
     textShadowColor: 'black',
     textShadowOffset: {
-      width: -2,
-      height: 2
+      width: 0,
+      height: 0
     },
-    textShadowRadius: 3
+    textShadowRadius: 7
   },
   diffDisplay: {
     alignItems: 'center',
   },
   diffText: {
     fontSize: 16,
+    padding: 20,
     color: 'white',
+    fontWeight: 'bold',
     textShadowColor: 'black',
     textShadowOffset: {
-      width: 2,
-      height: 2
+      width: 0,
+      height: 0
     },
-    textShadowRadius: 3
+    textShadowRadius: 6
   }
 });

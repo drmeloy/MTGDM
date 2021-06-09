@@ -2,11 +2,19 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
 export default function Background({ colors }){
-  console.log(colors);
-  const backgrounds = colors.map(color => 
+  const images = {
+    blue: require('../../../public/assets/backgrounds/blue_bg.png'),
+    white: require('../../../public/assets/backgrounds/white_bg.png'),
+    red: require('../../../public/assets/backgrounds/red_bg.png'),
+    black: require('../../../public/assets/backgrounds/black_bg.png'),
+    green: require('../../../public/assets/backgrounds/green_bg.png'),
+  }
+
+  const backgrounds = colors.map((color, i) => 
     <Image
-      source={require(`../../../public/assets/backgrounds/${color}_bg.png`)}
+      source={images[color]}
       style={styles.bg}
+      key={i}
     />
   );
 
@@ -30,5 +38,7 @@ const stylez = {
 const styles = StyleSheet.create({
   bg: {
     flex: 1,
+    height: undefined,
+    width: undefined
   }
 })
