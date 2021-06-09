@@ -9,7 +9,6 @@ export default function Background({ colors }){
       style={styles.bg}
     />
   );
-  console.log(backgrounds);
 
   return (
     <View style={stylez}>

@@ -8,14 +8,14 @@ import { styler } from '../utils';
 import { styles } from './styles';
 
 export default function LifeCounter({ boxNum }){
-  const [bgColor, setBgColor] = useState(['blue', 'white','green', 'red', 'black']);
+  const [bgColors, setBgColors] = useState(['blue']);
   const [menuOpen, setMenuOpen] = useState(false);
   
   return (
     <View style={[styler(styles, {}, 'container'), styler(styles, {}, `box${boxNum}`)]}>
-      <Background colors={bgColor}/>
+      <Background colors={bgColors}/>
       <ChangerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-      <ChangerModal isVisible={menuOpen} setBgColor={setBgColor} />
+      <ChangerModal isVisible={menuOpen} bgColors={bgColors} setBgColors={setBgColors} />
       <HpDisplay />
     </View>
   )
