@@ -13,32 +13,31 @@ export default function Background({ colors }){
   const backgrounds = colors.map((color, i) => 
     <Image
       source={images[color]}
-      style={styles.bg}
+      style={styles.image}
       key={i}
     />
   );
 
   return (
-    <View style={stylez}>
+    <View style={styles.view}>
       {backgrounds}
     </View>
   )
-}
-
-const stylez = {
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  zIndex: 0,
-  flexDirection: 'row'
 };
 
 const styles = StyleSheet.create({
-  bg: {
+  view: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 0,
+    flexDirection: 'row'
+  },
+  image: {
     flex: 1,
     height: undefined,
     width: undefined
   }
-})
+});

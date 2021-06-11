@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, Pressable, Image } from 'react-native';
-import { styles } from './styles';
-import { styler } from '../../utils';
+import { View, Pressable, Image, StyleSheet } from 'react-native';
 
 export default function ChangerButton({ menuOpen, setMenuOpen}){
   return (
-    <View style={styler(styles, {}, 'changerButton')}>
+    <View style={styles.changerButton}>
       <View>
         <Pressable
           onPress={() => setMenuOpen(!menuOpen)}
@@ -17,4 +15,12 @@ export default function ChangerButton({ menuOpen, setMenuOpen}){
       </View>
     </View>
   )
-}
+};
+
+const styles = StyleSheet.create({
+  changerButton: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+  }
+});

@@ -1,1 +1,0 @@
-export const styler = (styles, params, component) => styles(params)[component];

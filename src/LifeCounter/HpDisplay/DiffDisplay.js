@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Text, Animated } from 'react-native';
-import { styles } from './styles';
-import { styler } from '../../utils';
+import { Text, Animated, StyleSheet } from 'react-native';
 import _ from 'lodash';
 
 export default function DiffDisplay({ diff, setDiff }){
@@ -40,8 +38,26 @@ export default function DiffDisplay({ diff, setDiff }){
   }, [diff]);
 
   return (
-    <Animated.View style={[styler(styles, {}, 'diffDisplay'), { opacity: diffOpacity }]}>
-        <Text style={styler(styles, {}, 'diffText')}>{diff}</Text>
+    <Animated.View style={[styles.diffDisplay, { opacity: diffOpacity }]}>
+        <Text style={styles.diffText}>{diff}</Text>
     </Animated.View>
   );
 };
+
+const styles = StyleSheet.create({
+  diffDisplay: {
+    alignItems: 'center',
+  },
+  diffText: {
+    fontSize: 16,
+    padding: 20,
+    color: 'white',
+    fontWeight: 'bold',
+    textShadowColor: 'black',
+    textShadowOffset: {
+      width: 0,
+      height: 0
+    },
+    textShadowRadius: 6
+  }
+});

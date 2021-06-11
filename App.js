@@ -1,12 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import LifeCounter from './src/LifeCounter';
+import MenuBar from './src/MenuBar';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <LifeCounter boxNum={1} />
+      <MenuBar />
       <LifeCounter boxNum={2} />
     </View>
   );
@@ -14,6 +15,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
 });

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Pressable, Image } from 'react-native';
-import { styles } from './styles';
-import { styler } from '../../utils';
+import { Pressable, Image, StyleSheet } from 'react-native';
 
 export default function ColorSelector({ color, bgColors, setBgColors }){
   const colors = bgColors.slice();
@@ -26,8 +24,16 @@ export default function ColorSelector({ color, bgColors, setBgColors }){
       onLongPress={() => setBgColors([color])}
       >
       <Image
-          style={styler(styles, {}, 'colorSelector')}
+          style={styles.colorSelector}
           source={images[color]} />
     </Pressable>
   )
 };
+
+const styles = StyleSheet.create({
+  colorSelector: {
+    width: 25,
+    height: 25,
+    margin: 10
+  }
+});

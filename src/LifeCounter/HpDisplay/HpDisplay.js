@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, StyleSheet } from 'react-native';
 import DiffDisplay from './DiffDisplay';
-import { styler } from '../../utils';
-import { styles } from './styles';
 import PlusIcon from '../../../public/assets/plus_icon.svg';
 import MinusIcon from '../../../public/assets/minus_icon.svg';
 
@@ -22,25 +20,48 @@ export default function HpDisplay(){
   }
 
   return (
-    <View styles={styler(styles, stylesParams, 'hpDisplay')}>
+    <View styles={styles.hpDisplay}>
       <DiffDisplay diff={diff} setDiff={setDiff} />
-      <View style={styler(styles, stylesParams, 'hp')}>
+      <View style={styles.hp}>
         <Pressable onPress={lowerHp}>
           {/* <MinusIcon /> */}
-          <Text style={styler(styles, stylesParams, 'font')}>
+          <Text style={styles.font}>
             -
           </Text>
         </Pressable>
-        <Text style={styler(styles, stylesParams, 'font')}>
+        <Text style={styles.font}>
           {hp}
         </Text>
         <Pressable onPress={raiseHp}>
           {/* <PlusIcon /> */}
-          <Text style={styler(styles, stylesParams, 'font')}>
+          <Text style={styles.font}>
             +
           </Text>
         </Pressable>
       </View>
     </View>
   )
-}
+};
+
+const styles = StyleSheet.create({
+  hpDisplay: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  hp: {
+    flexDirection: 'row',
+  },
+  font: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    padding: 20,
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowOffset: {
+      width: 0,
+      height: 0
+    },
+    textShadowRadius: 7
+  },
+});
