@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+import { useColors } from '../../contexts/colors-context';
 
-export default function Background({ colors }){
+export default function Background(){
+  const { colors } = useColors();
+
   const images = {
     blue: require('../../../public/assets/backgrounds/blue_bg.png'),
     white: require('../../../public/assets/backgrounds/white_bg.png'),

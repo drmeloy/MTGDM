@@ -2,14 +2,14 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ColorSelector from './ColorSelector';
 
-export default function ChangerModal({ isVisible, bgColors, setBgColors }){
+export default function ChangerModal({ isVisible }){
   return (
     <View style={[styles.changerModal, { display: isVisible ? '' : 'none' }]}>
-      <ColorSelector color={'blue'} bgColors={bgColors} setBgColors={setBgColors} />
-      <ColorSelector color={'red'} bgColors={bgColors} setBgColors={setBgColors} />
-      <ColorSelector color={'white'} bgColors={bgColors} setBgColors={setBgColors} />
-      <ColorSelector color={'black'} bgColors={bgColors} setBgColors={setBgColors} />
-      <ColorSelector color={'green'} bgColors={bgColors} setBgColors={setBgColors} />
+      <ColorSelector color={'blue'} />
+      <ColorSelector color={'red'} />
+      <ColorSelector color={'white'} />
+      <ColorSelector color={'black'} />
+      <ColorSelector color={'green'} />
     </View>
   )
 };

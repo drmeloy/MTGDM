@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { View, Pressable, Image, StyleSheet } from 'react-native';
-import OpenButton from './OpenButton';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import MenuToggleButton from './MenuToggleButton';
+import { useMenu } from '../contexts/menu-context';
 
 export default function MenuBar(){
-  const [menuOpen, setMenuOpen] = useState(false);
+  const {menuOpen} = useMenu();
 
   return (
     <View style={[
@@ -12,25 +13,17 @@ export default function MenuBar(){
       styles.menuClosed,
       { justifyContent: 'center' }
     ]}>
-      <OpenButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} />  
+      <MenuToggleButton />  
     </View>
   )
 };
 
 const styles = StyleSheet.create({
   menuClosed: {
-    // position: 'absolute',
-    // top: '48%',
-    // left: 0,
-    // right: 0,
     height: 0,
     zIndex: 5
   },
   menuOpen: {
-    // position: 'absolute',
-    // top: '48%',
-    // left: 0,
-    // right: 0,
     borderColor: 'black',
     borderWidth: '3px',
     zIndex: 5,

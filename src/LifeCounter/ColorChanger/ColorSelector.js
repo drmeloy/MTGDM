@@ -1,8 +1,9 @@
 import React from 'react';
 import { Pressable, Image, StyleSheet } from 'react-native';
+import { useColors } from '../../contexts/colors-context';
 
-export default function ColorSelector({ color, bgColors, setBgColors }){
-  const colors = bgColors.slice();
+export default function ColorSelector({ color }){
+  const { colors, setColors, toggleColors } = useColors();
   const images = {
     blue: require('../../../public/assets/mana/blue_mana.png'),
     white: require('../../../public/assets/mana/white_mana.png'),
@@ -13,15 +14,8 @@ export default function ColorSelector({ color, bgColors, setBgColors }){
   
   return (
     <Pressable
-      onPress={() => {
-        if (colors.includes(color)) {
-          if (colors.length === 1) return;
-          colors.splice(colors.indexOf(color), 1)
-          setBgColors(colors);
-        }
-        else (setBgColors([...colors, color]));
-      }}
-      onLongPress={() => setBgColors([color])}
+      onPress={() => toggleColors(color, colors)}
+      onLongPress={() => setColors([color])}
       >
       <Image
           style={styles.colorSelector}

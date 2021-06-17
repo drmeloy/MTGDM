@@ -1,11 +1,13 @@
 import React from 'react';
-import { Pressable, Image, View, StyleSheet } from 'react-native';
+import { Pressable, Image, StyleSheet } from 'react-native';
+import { useMenu } from '../contexts/menu-context';
 
-export default function OpenButton({ menuOpen, setMenuOpen }){
+export default function MenuToggleButton(){
+  const { toggleMenu } = useMenu();
 
   return (
     <Pressable
-      onPress={() => setMenuOpen(!menuOpen)}
+      onPress={() => toggleMenu()}
     >
       <Image
         source={require('../../public/assets/logos/mtg_logo_gold.png')}
