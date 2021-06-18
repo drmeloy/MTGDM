@@ -19,8 +19,8 @@ export default function MenuToggleButton(){
 
 const styles = StyleSheet.create({
   openButton: {
-    height: 30,
-    width: 30,
+    height: 35,
+    width: 35,
     alignSelf: 'center'
   }
 });

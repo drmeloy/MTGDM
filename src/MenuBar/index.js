@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MenuToggleButton from './MenuToggleButton';
+import Menu from './Menu';
 import { useMenu } from '../contexts/menu-context';
 
 export default function MenuBar(){
@@ -8,25 +9,30 @@ export default function MenuBar(){
 
   return (
     <View style={[
-      menuOpen ? 
-      styles.menuOpen : 
-      styles.menuClosed,
-      { justifyContent: 'center' }
+      styles.menu,
+      menuOpen && styles.menuOpen,
+      !menuOpen && styles.menuClosed
     ]}>
-      <MenuToggleButton />  
+      {!menuOpen && <MenuToggleButton />}
+      {menuOpen && <Menu />}
     </View>
   )
 };
 
 const styles = StyleSheet.create({
+  menu: {
+    zIndex: 5,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: 'rgb(40, 40, 40)',
+    flexDirection: 'row'
+  },
   menuClosed: {
     height: 0,
-    zIndex: 5
   },
   menuOpen: {
+    height: 45,
     borderColor: 'black',
-    borderWidth: '3px',
-    zIndex: 5,
-    backgroundColor: 'rgba(52, 52, 52, 0.5)',
+    borderWidth: 3,
   }
 });
