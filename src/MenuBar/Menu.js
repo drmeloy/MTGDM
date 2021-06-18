@@ -1,11 +1,31 @@
-import React from 'react';
-import { View, Image, Pressable, StyleSheet } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { View, Image, Pressable, StyleSheet, Animated } from 'react-native';
 import { useMenu } from '../contexts/menu-context';
 import MenuToggleButton from './MenuToggleButton';
 
 export default function Menu(){
- return (
-    <>
+  const { menuOpen } = useMenu();
+  const menuOpacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (menuOpen) {
+      Animated.timing(menuOpacity, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true
+      }).start();
+    }
+    if (!menuOpen) {
+      Animated.timing(menuOpacity, {
+        toValue: 0,
+        duration: 100,
+        useNativeDriver: true
+      }).start();
+    };
+  }, [menuOpen]);
+  
+  return (
+    <Animated.View style={[styles.container, { opacity: menuOpacity }]}>
       <Image
         source={require('../../public/assets/mana/blue_mana.png')} 
         style={styles.button} />
@@ -19,11 +39,21 @@ export default function Menu(){
       <Image
         source={require('../../public/assets/mana/black_mana.png')} 
         style={styles.button} />
-    </>
+    </Animated.View>
   )
 };
 
 const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
   button: {
     height: 30,
     width: 30

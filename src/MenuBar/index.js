@@ -1,38 +1,56 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { StyleSheet, Animated } from 'react-native';
 import MenuToggleButton from './MenuToggleButton';
 import Menu from './Menu';
 import { useMenu } from '../contexts/menu-context';
 
 export default function MenuBar(){
   const {menuOpen} = useMenu();
+  const menuHeight = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (menuOpen) {
+      Animated.timing(menuHeight, {
+        toValue: 45,
+        duration: 100,
+        useNativeDriver: true
+      }).start();
+    }
+    if (!menuOpen) {
+      Animated.timing(menuHeight, {
+        toValue: 0,
+        duration: 100,
+        useNativeDriver: true
+      }).start();
+    };
+  }, [menuOpen]);
 
   return (
-    <View style={[
+    <Animated.View style={[
       styles.menu,
       menuOpen && styles.menuOpen,
-      !menuOpen && styles.menuClosed
+      !menuOpen && styles.menuClosed,
+      { height: menuHeight }
     ]}>
       {!menuOpen && <MenuToggleButton />}
       {menuOpen && <Menu />}
-    </View>
+    </Animated.View>
   )
 };
 
 const styles = StyleSheet.create({
   menu: {
     zIndex: 5,
-    justifyContent: 'space-evenly',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'rgb(40, 40, 40)',
-    flexDirection: 'row'
   },
   menuClosed: {
-    height: 0,
+    // height: 0,
   },
   menuOpen: {
-    height: 45,
-    borderColor: 'black',
+    // height: 45,
+    // borderColor: 'black',
     borderWidth: 3,
   }
 });
