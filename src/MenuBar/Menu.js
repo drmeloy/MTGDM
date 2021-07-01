@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Image, Pressable, StyleSheet, Animated } from 'react-native';
+import { Image, StyleSheet, Animated } from 'react-native';
 import { useMenu } from '../contexts/menu-context';
 import MenuToggleButton from './MenuToggleButton';
+import NumPlayersMenu from './NumPlayersMenu';
 
 export default function Menu(){
   const { menuOpen } = useMenu();
@@ -14,7 +15,7 @@ export default function Menu(){
         duration: 300,
         useNativeDriver: true
       }).start();
-    }
+    };
     if (!menuOpen) {
       Animated.timing(menuOpacity, {
         toValue: 0,
@@ -26,9 +27,7 @@ export default function Menu(){
   
   return (
     <Animated.View style={[styles.container, { opacity: menuOpacity }]}>
-      <Image
-        source={require('../../public/assets/mana/blue_mana.png')} 
-        style={styles.button} />
+      <NumPlayersMenu />
       <Image
         source={require('../../public/assets/mana/red_mana.png')} 
         style={styles.button} />

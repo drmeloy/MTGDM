@@ -29,7 +29,6 @@ export default function MenuBar(){
     <Animated.View style={[
       styles.menu,
       menuOpen && styles.menuOpen,
-      !menuOpen && styles.menuClosed,
       { height: menuHeight }
     ]}>
       {!menuOpen && <MenuToggleButton />}
@@ -45,12 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'rgb(40, 40, 40)',
   },
-  menuClosed: {
-    // height: 0,
-  },
   menuOpen: {
-    // height: 45,
-    // borderColor: 'black',
     borderWidth: 3,
   }
 });

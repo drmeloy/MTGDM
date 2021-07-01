@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const MenuContext = createContext();
 
 function MenuProvider({children}){
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
   const value = {
     menuOpen,
     toggleMenu: () => setMenuOpen(menuOpen === false ? true : false)
