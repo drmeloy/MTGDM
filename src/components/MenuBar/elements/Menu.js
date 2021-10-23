@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { Image, StyleSheet, Animated } from 'react-native';
-import { useMenu } from '../contexts/menu-context';
-import MenuToggleButton from './MenuToggleButton';
-import NumPlayersMenu from './NumPlayersMenu';
+import { useMenu } from '../../../contexts';
+import { MenuToggleButton } from './MenuToggleButton';
 
-export default function Menu(){
+export function Menu(){
   const { menuOpen } = useMenu();
   const menuOpacity = useRef(new Animated.Value(0)).current;
 
@@ -27,16 +26,18 @@ export default function Menu(){
   
   return (
     <Animated.View style={[styles.container, { opacity: menuOpacity }]}>
-      <NumPlayersMenu />
       <Image
-        source={require('../../public/assets/mana/red_mana.png')} 
+        source={require('../../../../public/assets/mana/blue_mana.png')} 
+        style={styles.button} />
+      <Image
+        source={require('../../../../public/assets/mana/red_mana.png')} 
         style={styles.button} />
       <MenuToggleButton />
       <Image
-        source={require('../../public/assets/mana/green_mana.png')} 
+        source={require('../../../../public/assets/mana/green_mana.png')} 
         style={styles.button} />
       <Image
-        source={require('../../public/assets/mana/black_mana.png')} 
+        source={require('../../../../public/assets/mana/black_mana.png')} 
         style={styles.button} />
     </Animated.View>
   )

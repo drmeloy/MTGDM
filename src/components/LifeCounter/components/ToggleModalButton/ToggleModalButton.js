@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Pressable, Image, StyleSheet } from 'react-native';
 
-export default function ToggleModalButton({ modalOpen, setModalOpen}){
+export function ToggleModalButton({ modalOpen, setModalOpen}){
   return (
     <View style={styles.toggleModalButton}>
       <Pressable
@@ -9,7 +9,7 @@ export default function ToggleModalButton({ modalOpen, setModalOpen}){
       >
         <Image
           style={styles.button}
-          source={require('../../../public/assets/mana/green_mana.png')} />
+          source={require('../../../../../public/assets/5_circles.png')} />
       </Pressable>
     </View>
   )
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     right: 20,
   },
   button: {
-    width: 25,
-    height: 25
+    width: 40,
+    height: 40
   }
 });

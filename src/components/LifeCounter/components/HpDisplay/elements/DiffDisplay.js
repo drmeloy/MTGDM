@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Text, Animated, StyleSheet } from 'react-native';
 import _ from 'lodash';
 
-export default function DiffDisplay({ diff, setDiff }){
+export function DiffDisplay({ diff, setDiff }){
   const [isResetting, setIsResetting] = useState(false);
   const diffOpacity = useRef(new Animated.Value(0)).current;
   const initialLoadDone = useRef(false);
@@ -39,7 +39,7 @@ export default function DiffDisplay({ diff, setDiff }){
 
   return (
     <Animated.View style={[styles.diffDisplay, { opacity: diffOpacity }]}>
-        <Text style={styles.diffText}>{diff}</Text>
+        <Text style={styles.diffText}>{diff > 0 && '+'}{diff}</Text>
     </Animated.View>
   );
 };

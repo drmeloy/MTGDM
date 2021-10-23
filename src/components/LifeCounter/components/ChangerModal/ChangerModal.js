@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import ColorSelector from './ColorSelector';
+import { ColorSelector } from './elements';
 
-export default function ChangerModal({ isVisible }){
+export function ChangerModal({ isVisible }){
   return (
     <View style={[styles.changerModal, { display: isVisible ? '' : 'none' }]}>
       <ColorSelector color={'blue'} />

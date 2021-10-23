@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable, StyleSheet } from 'react-native';
-import DiffDisplay from './DiffDisplay';
-import PlusIcon from '../../../public/assets/plus_icon.svg';
-import MinusIcon from '../../../public/assets/minus_icon.svg';
+import { DiffDisplay } from './elements';
+import PlusIcon from '../../../../../public/assets/plus_icon.svg';
+import MinusIcon from '../../../../../public/assets/minus_icon.svg';
 
-export default function HpDisplay(){
+export function HpDisplay(){
   const [hp, setHp] = useState(40);
   const [diff, setDiff] = useState(0);
   const stylesParams = {};

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Pressable, Image, StyleSheet } from 'react-native';
-import { useMenu } from '../contexts/menu-context';
+import { useMenu } from '../../../contexts';
 
-export default function MenuToggleButton(){
+export function MenuToggleButton(){
   const { toggleMenu } = useMenu();
 
   return (
@@ -10,7 +10,7 @@ export default function MenuToggleButton(){
       onPress={() => toggleMenu()}
     >
       <Image
-        source={require('../../public/assets/logos/mtg_logo_gold.png')}
+        source={require('../../../../public/assets/logos/mtg_logo_gold.png')}
         style={[styles.openButton]}
         />
     </Pressable>

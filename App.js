@@ -1,23 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import LifeCounter from './src/LifeCounter';
-import MenuBar from './src/MenuBar';
-import { MenuProvider } from './src/contexts/menu-context';
+import { MtgDm } from './src';
 
 export default function App() {
   return (
-    <MenuProvider>
-      <View style={styles.container}>
-        <LifeCounter boxNum={1} />
-        <MenuBar />
-        <LifeCounter boxNum={2} />
-      </View>
-    </MenuProvider>
+    <MtgDm />
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-});
+};

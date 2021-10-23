@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { StyleSheet, Animated } from 'react-native';
-import MenuToggleButton from './MenuToggleButton';
-import Menu from './Menu';
-import { useMenu } from '../contexts/menu-context';
+import { Menu, MenuToggleButton } from './elements/';
+import { useMenu } from '../../contexts';
 
-export default function MenuBar(){
+export function MenuBar(){
   const {menuOpen} = useMenu();
   const menuHeight = useRef(new Animated.Value(0)).current;
 

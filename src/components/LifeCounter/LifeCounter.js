@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Pressable } from 'react-native';
-import HpDisplay from './HpDisplay/HpDisplay';
-import ToggleModalButton from './ColorChanger/ToggleModalButton';
-import ChangerModal from './ColorChanger/ChangerModal'
-import Background from './ColorChanger/Background';
-import { useMenu } from '../contexts/menu-context';
-import { ColorsProvider } from '../contexts/colors-context';
+import { Background, ToggleModalButton, ChangerModal, HpDisplay } from './components';
+import { ColorsProvider, useMenu } from '../../contexts';
 
-export default function LifeCounter({ boxNum }){
+export function LifeCounter({ boxNum }){
   const [modalOpen, setModalOpen] = useState(false);
   const { menuOpen, toggleMenu } = useMenu();
 
