@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { useColors } from '../../../../contexts';
+import { useColors, useTurnCounter } from '../../../../contexts';
 
-export function Background(){
+export function Background({ boxNum }){
   const { colors } = useColors();
+  const { activePlayer } = useTurnCounter();
 
   const images = {
     blue: require('../../../../../public/assets/backgrounds/blue_bg.png'),
@@ -22,8 +23,8 @@ export function Background(){
   );
 
   return (
-    <View style={styles.view}>
-      {backgrounds}
+    <View style={[styles.view, activePlayer !== boxNum && styles.inactive]}>
+      {boxNum}{backgrounds}{activePlayer}
     </View>
   )
 };
@@ -42,5 +43,8 @@ const styles = StyleSheet.create({
     flex: 1,
     height: undefined,
     width: undefined
+  },
+  inactive: {
+    filter: 'brightness(45%)'
   }
 });

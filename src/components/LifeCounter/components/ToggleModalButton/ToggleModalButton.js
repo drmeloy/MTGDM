@@ -3,7 +3,7 @@ import { View, Pressable, Image, StyleSheet } from 'react-native';
 
 export function ToggleModalButton({ modalOpen, setModalOpen}){
   return (
-    <View style={styles.toggleModalButton}>
+    <View>
       <Pressable
         onPress={() => setModalOpen(!modalOpen)}
       >
@@ -16,13 +16,8 @@ export function ToggleModalButton({ modalOpen, setModalOpen}){
 };
 
 const styles = StyleSheet.create({
-  toggleModalButton: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-  },
   button: {
     width: 40,
-    height: 40
+    height: 40,
   }
 });

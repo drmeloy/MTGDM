@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Pressable } from 'react-native';
-import { Background, ToggleModalButton, ChangerModal, HpDisplay } from './components';
+import { Background, ChangerModal, HpDisplay, TopRow } from './components';
 import { ColorsProvider, useMenu } from '../../contexts';
 
 export function LifeCounter({ boxNum }){
@@ -21,10 +21,10 @@ export function LifeCounter({ boxNum }){
       <Pressable 
         style={[styles.container, styles[`box${boxNum}`]]}
         onPress={() => onClickOutside(modalOpen, menuOpen)}>
-        <Background />
-        <ToggleModalButton modalOpen={modalOpen} setModalOpen={setModalOpen}/>
-        <ChangerModal isVisible={modalOpen} />
+        <Background boxNum={boxNum} />
+        <TopRow modalOpen={modalOpen} setModalOpen={setModalOpen} boxNum={boxNum} />
         <HpDisplay />
+        <ChangerModal isVisible={modalOpen} />
       </Pressable>
     </ColorsProvider>
   )
@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderTopColor: 'black',
-    borderTopWidth: '1px'
+    borderTopWidth: '1px',
   },
-  box1: {
+  box2: {
     transform: [{
       rotate: '180deg'
     }]
-  },
+  }
 });

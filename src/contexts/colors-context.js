@@ -2,11 +2,10 @@ import React, { createContext, useContext, useState } from 'react';
 
 const ColorsContext = createContext();
 
-function ColorsProvider({children}){
+function ColorsProvider({ children }){
   const [colors, setColors] = useState(['blue']);
   const value = {
     colors,
-    setColors,
     toggleColors: (thisColor, currentColors) => {
       const bgColors = currentColors.slice();
       if (bgColors.includes(thisColor)) {
