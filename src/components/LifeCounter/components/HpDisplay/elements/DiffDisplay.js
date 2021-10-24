@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
   },
   diffText: {
     fontSize: 16,
-    padding: 20,
     color: 'white',
     fontWeight: 'bold',
     textShadowColor: 'black',

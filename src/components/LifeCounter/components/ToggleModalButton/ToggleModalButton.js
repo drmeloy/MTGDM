@@ -9,7 +9,7 @@ export function ToggleModalButton({ modalOpen, setModalOpen}){
       >
         <Image
           style={styles.button}
-          source={require('../../../../../public/assets/5_circles.png')} />
+          source={require('../../../../../public/assets/loader.svg')} />
       </Pressable>
     </View>
   )
@@ -17,7 +17,8 @@ export function ToggleModalButton({ modalOpen, setModalOpen}){
 
 const styles = StyleSheet.create({
   button: {
-    width: 40,
-    height: 40,
+    width: 25,
+    height: 25,
+    opacity: '0.7',
   }
 });

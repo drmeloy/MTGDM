@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { ToggleModalButton, TurnCounter, PassTurnButton  } from '..';
+import { useTurnCounter } from '../../../../contexts';
 
 export const TopRow = ({ modalOpen, setModalOpen, boxNum }) => {
+  const { turnCounterOn } = useTurnCounter();
+
   return (
     <View style={styles.container}>
-      <PassTurnButton boxNum={boxNum} />
-      <TurnCounter />
       <ToggleModalButton modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      {turnCounterOn ? <TurnCounter /> : <></>}
+      {turnCounterOn ? <PassTurnButton boxNum={boxNum} /> : <></>}
     </View>
   );
 };

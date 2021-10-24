@@ -3,9 +3,11 @@ import React, { createContext, useContext, useState } from 'react';
 const TurnContext = createContext();
 
 function TurnProvider({ children }){
+  const [turnCounterOn, setTurnCounterOn] = useState(true);
   const [turn, setTurn] = useState(1);
   const [activePlayer, setActivePlayer] = useState(1);
   const value = {
+    turnCounterOn,
     turn,
     activePlayer,
     incrementTurn: () => {
@@ -16,6 +18,9 @@ function TurnProvider({ children }){
         setTurn(turn + 1);
         setActivePlayer(1);
       }
+    },
+    toggleTurnCounter: () => {
+      setTurnCounterOn(!turnCounterOn)
     }
   }
 

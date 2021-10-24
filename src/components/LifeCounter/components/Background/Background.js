@@ -4,7 +4,7 @@ import { useColors, useTurnCounter } from '../../../../contexts';
 
 export function Background({ boxNum }){
   const { colors } = useColors();
-  const { activePlayer } = useTurnCounter();
+  const { activePlayer, turnCounterOn } = useTurnCounter();
 
   const images = {
     blue: require('../../../../../public/assets/backgrounds/blue_bg.png'),
@@ -23,8 +23,8 @@ export function Background({ boxNum }){
   );
 
   return (
-    <View style={[styles.view, activePlayer !== boxNum && styles.inactive]}>
-      {boxNum}{backgrounds}{activePlayer}
+    <View style={[styles.view, turnCounterOn && activePlayer !== boxNum && styles.inactive]}>
+      {backgrounds}
     </View>
   )
 };
