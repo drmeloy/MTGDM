@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const TurnContext = createContext();
 
 function TurnProvider({ children }){
-  const [turnCounterOn, setTurnCounterOn] = useState(true);
+  const [turnCounterOn, setTurnCounterOn] = useState(false);
   const [turn, setTurn] = useState(1);
   const [activePlayer, setActivePlayer] = useState(1);
   const value = {
@@ -21,6 +21,10 @@ function TurnProvider({ children }){
     },
     toggleTurnCounter: () => {
       setTurnCounterOn(!turnCounterOn)
+    },
+    resetTurnCounter: () => {
+      setTurnCounterOn(false);
+      setTurn(1);
     }
   }
 
@@ -32,4 +36,5 @@ function useTurnCounter(){
   if (context === undefined) throw new Error('useTurn must be used within a <TurnProvider>');
   return context;
 }
+
 export { TurnProvider, useTurnCounter };

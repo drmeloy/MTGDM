@@ -23,7 +23,7 @@ export function LifeCounter({ boxNum }){
         onPress={() => onClickOutside(modalOpen, menuOpen)}>
         <Background boxNum={boxNum} />
         <TopRow modalOpen={modalOpen} setModalOpen={setModalOpen} boxNum={boxNum} />
-        <HpDisplay />
+        <HpDisplay boxNum={boxNum} />
         <ChangerModal isVisible={modalOpen} />
       </Pressable>
     </ColorsProvider>

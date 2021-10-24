@@ -2,11 +2,10 @@ import React, { useRef, useEffect } from 'react';
 import { Image, StyleSheet, Animated } from 'react-native';
 import { useMenu, useTurnCounter } from '../../../contexts';
 import { MenuToggleButton } from './MenuToggleButton';
-import { ToggleTurnCounterButton } from './MenuButtons';
+import { ToggleTurnCounterButton, ResetButton } from './MenuButtons';
 
 export function Menu(){
   const { menuOpen } = useMenu();
-  const { toggleTurnCounterOn } = useTurnCounter();
   const menuOpacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -36,9 +35,7 @@ export function Menu(){
       <Image
         source={require('../../../../public/assets/mana/green_mana.png')} 
         style={styles.button} />
-      <Image
-        source={require('../../../../public/assets/mana/black_mana.png')} 
-        style={styles.button} />
+      <ResetButton />
     </Animated.View>
   )
 };

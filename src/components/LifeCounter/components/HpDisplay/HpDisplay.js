@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable, StyleSheet } from 'react-native';
 import { DiffDisplay } from './elements';
+import { useHp } from '../../../../contexts';
 import PlusIcon from '../../../../../public/assets/plus_icon.svg';
 import MinusIcon from '../../../../../public/assets/minus_icon.svg';
 
-export function HpDisplay(){
-  const [hp, setHp] = useState(40);
+export function HpDisplay({ boxNum }){
+  const { hp, setHp } = useHp();
   const [diff, setDiff] = useState(0);
-  const stylesParams = {};
   
+  const currentPlayer = `player${boxNum}`;
+  const currentHp = hp[currentPlayer];
+
   const raiseHp = () => {
-    setHp(hp + 1);
+    setHp({
+      ...hp,
+      [currentPlayer]: currentHp + 1
+    });
     setDiff(diff + 1);
   }
 
   const lowerHp = () => {
-    setHp(hp - 1);
+    setHp({
+      ...hp,
+      [currentPlayer]: currentHp - 1
+    });
     setDiff(diff - 1);
   }
 
@@ -30,7 +39,7 @@ export function HpDisplay(){
           </Text>
         </Pressable>
         <Text style={styles.font}>
-          {hp}
+          {currentHp}
         </Text>
         <Pressable onPress={raiseHp}>
           {/* <PlusIcon /> */}
